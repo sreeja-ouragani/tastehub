@@ -1,42 +1,52 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const HomePage = () => {
-  const [role, setRole] = useState(null);
+function Homepage() {
+  const [role, setRole] = useState(null); // To store the user/admin role
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedRole = localStorage.getItem("role");
-    if (storedRole) {
-      setRole(storedRole);
+    // Get the role from localStorage
+    const storedRole = localStorage.getItem('role');
+
+    // If no role is found, redirect to the login page
+    if (!storedRole) {
+      navigate('/login'); // Redirect to login if not logged in
     } else {
-      navigate("/");  // If no role is found, redirect to login page
+      setRole(storedRole); // Set the role (admin/user)
     }
   }, [navigate]);
 
-  if (role === null) return <div>Loading...</div>;  // Show loading state
-
+  // Render content based on role
   return (
     <div>
       <h1>Welcome to TasteHub!</h1>
-      {role === 'user' ? (
+
+      {role === 'admin' ? (
         <div>
-          <h2>User Homepage</h2>
-          {/* User-specific content */}
+          <h2>Admin Dashboard</h2>
+          <ul>
+            <li>Manage Users</li>
+            <li>View Orders</li>
+            <li>Update Menus</li>
+            {/* Add more admin-specific features here */}
+          </ul>
         </div>
-      ) : role === 'admin' ? (
+      ) : role === 'user' ? (
         <div>
-          <h2>Admin Homepage</h2>
-          {/* Admin-specific content */}
+          <h2>User Dashboard</h2>
+          <ul>
+            <li>View Menu</li>
+            <li>Place Orders</li>
+            <li>Track Your Orders</li>
+            {/* Add more user-specific features here */}
+          </ul>
         </div>
       ) : (
-        <div>
-          <h2>Access Denied</h2>
-          <p>Your role is not authorized to access this page.</p>
-        </div>
+        <p>Loading...</p> // Loading state until role is fetched
       )}
     </div>
   );
-};
+}
 
-export default HomePage;
+export default Homepage;

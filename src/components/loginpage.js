@@ -49,9 +49,9 @@ function LoginPage() {
 
         // Redirect based on the role
         if (result.role === 'admin') {
-          navigate('/admin-homepage'); // Adjust to actual admin route
+          navigate('/home'); // Adjust to actual admin route
         } else {
-          navigate('/user-homepage'); // Adjust to actual user route
+          navigate('/home'); // Adjust to actual user route
         }
       } else {
         alert('Invalid credentials! Please try again.');

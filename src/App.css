@@ -38,8 +38,8 @@ body {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for distinction */
-  width: 300%; /* Allow the form to take full available width */
-  max-width: 700px; /* Limit the max width */
+  width: 250%; /* Increased width */
+  max-width: 600px; /* Increased max width */
   margin-top: 85px;
   margin-left: 30px;
   margin-right: 90px;
@@ -140,8 +140,8 @@ p {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for distinction */
-  width: 100%; /* Allow the form to take full available width */
-  max-width: 400px; /* Limit the max width */
+  width: 500%; /* Increased width */
+  max-width: 300px; /* Increased max width */
   margin-top: 85px;
   margin-left: 30px;
   margin-right: 90px;
