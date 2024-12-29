@@ -24,12 +24,20 @@ body {
   color: white;
 }
 
-/* Logo styling */
-.logo {
+/* Logo styling .logo {
   display: block;
   margin: 0 auto 50px; /* Center horizontally and add bottom margin */
-  width: 1000px; /* Adjust logo width as needed */
-  height: 1000px; /* Adjust logo height as needed */
+  /*width: 2000px; /* Adjust logo width as needed */
+  /*height: 2000px; /* Adjust logo height as needed */
+  /*max-width: 300px;
+} */
+
+.logo {
+  width: 780px;
+  height: auto;
+  object-fit: contain;
+  max-width: 5000%;
+  margin: 0 auto 50px;
 }
 
 /* Form wrapper styling */
@@ -38,8 +46,8 @@ body {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for distinction */
-  width: 550%; /* Increased width */
-  max-width: 800px; /* Increased max width */
+  width: 350%; /* Increased width */
+  max-width: 300px; /* Increased max width */
   margin-top: 85px;
   margin-left: 30px;
   margin-right: 90px;
@@ -141,7 +149,7 @@ p {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for distinction */
   width: 800%; /* Increased width */
-  max-width: 300px; /* Increased max width */
+  max-width: 250px; /* Increased max width */
   margin-top: 85px;
   margin-left: 30px;
   margin-right: 90px;
@@ -238,6 +246,7 @@ p {
 /*home-users*/
 /* App.css */
 /* Global Reset */
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
@@ -271,22 +280,21 @@ body, html {
   align-items: center;
   padding: 20px;
   position: relative;
-  
 }
 
 /* Logo Container */
 .logo-container {
   position: absolute; /* Position logo in the top left corner */
-  top: 0px;  /* Adjust top position */
-  left: 10px; /* Adjust left position */
+  top: 10px;  /* Adjust top position */
+  left: 20px; /* Adjust left position */
   z-index: 7; /* Ensure logo stays on top */
 }
 
 .logo {
-  width: 280px; /* Set a larger logo size */
-  height: 190px;
+  width: 400px; /* Set a larger logo size */
+  height: 160px;
   object-fit: contain; /* Prevent logo from distortion */
-  max-width: 5000%;
+  max-width: 600%;
 }
 
 /* Navigation Buttons */
@@ -325,7 +333,7 @@ body, html {
   z-index: 10;
 }
 
-/* Menu Options */
+/* Menu Styles */
 .menu {
   position: absolute;
   top: 70px;
@@ -349,10 +357,196 @@ body, html {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Main Content */
+/* Main Content Section */
 .main-content {
-  flex: 1;
+  flex: 3;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 30px;
+  animation: fadeIn 1s ease-in-out;
 }
+
+/* Welcome Message Animation */
+.welcome-message {
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 80%; /* Limit message width */
+  margin: 0 auto;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideIn 1s ease-out forwards;
+  animation-delay: 0.4s; /* Delay before animation starts */
+}
+
+.welcome-message:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Keyframe Animation for Slide-In and Fade-In */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product Section (Explore Menu) */
+/* Product Section (Explore Menu) */
+.h2{
+  font-style: italic;
+  color: thistle;
+}
+.explore-menu-btn {
+  background-color: #ff8c00;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.explore-menu-btn:hover {
+  background-color: #e07b00; /* Darker orange */
+}
+.product-section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  overflow-y: auto; /* Vertical scroll */
+  max-height: 80vh; /* Max height to keep it within the viewport */
+}
+
+
+.product-section.visible {
+  display: block;
+  opacity: 1;
+}
+
+
+
+.product-item {
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  overflow: hidden; /* Hide overflow content */
+}
+
+.product-item:hover {
+  transform: scale(1.05); /* Zoom effect */
+}
+
+/* Product List Grid Layout */
+
+
+.product-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 30px;
+  padding: 30px;
+  max-width: 100%; /* Take full width */
+  grid-auto-rows: 1fr; /* Ensures that rows scale evenly */
+}
+
+/* Product Card Styling */
+.product-card {
+  background-color:white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-card:hover {
+  transform: scale(1.05); /* Slight hover zoom */
+}
+
+/* Product Image */
+.product-image {
+  width: 34%; /* Full width of the container */
+  height: 34%; /* Full height of the container */
+  object-fit: cover; /* Cover the container without distortion */
+  aspect-ratio: 1; /* Make the image square */
+  border-radius: 8px;
+}
+
+/* Product Info Styling */
+.product-info {
+  text-align: center;
+}
+
+.product-price {
+  font-size: 18px;
+  color: #ff8c00; /* Orange color for price */
+  margin: 10px 0;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+  background-color: #ff8c00; /* Orange button color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+  background-color: #e07b00; /* Slightly darker on hover */
+}
+
+/* Cart Actions (Place Order) */
+.cart-actions {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.place-order {
+  background-color: #28a745; /* Green color for place order */
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.place-order:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Mobile Responsive Styling for Explore Menu */
+@media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .product-section {
+    padding: 10px;
+  }
+}
+/* this is for the add to cart and incre and decre and my cart*/
+
